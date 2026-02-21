@@ -1,6 +1,7 @@
 <?php
+
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\{Route,Auth};
+use Illuminate\Support\Facades\{Route, Auth};
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\{FrontendController, HomeController, SocialController, ProfileController, BackupController, RoleController, UserController};
 /*
@@ -13,7 +14,9 @@ use App\Http\Controllers\{FrontendController, HomeController, SocialController, 
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', [FrontendController::class, 'index'])->name('index');
+Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 
 Auth::routes();
 
@@ -52,4 +55,3 @@ Route::middleware(['auth'])->group(function () {
     //User Routes
     Route::resource('user', UserController::class);
 });
-
